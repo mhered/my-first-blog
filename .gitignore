@@ -1,9 +1,21 @@
+# Python
 *.pyc
 *~
 __pycache__
+
+# Env
 myvenv
+
+# Database
 db.sqlite3
+
+# Static folder at project root
 /static
-.DS_Store
+
+# my notes
 Django_Girls_Tutorial_notes.md
-.vscode
+
+# Visual Studio
+.vscode/
+.history/
+*.code-workspace
