@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 
+{% load markdownify %}
+
 {% block content %}
     {% for post in posts %}
         <article class="post">
@@ -7,7 +9,7 @@
                 Published: {{ post.published_date }}
             </time>
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text | striptags | truncatechars:80  }}</p>
+            <p>{{ post.text | slice:":300" | markdownify |striptags }}...</p>
         </article>
     {% endfor %}
 {% endblock %}
