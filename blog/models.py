@@ -19,4 +19,4 @@ class Post(models.Model):
 
     def __str__(self):
         """__str__ method """
-        return self.title
+        return self.title + ' | ' + str(self.author)
