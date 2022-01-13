@@ -2,8 +2,26 @@
 
 {% block content %}
     <h2>Edit post</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+
+
+    <form id="post_form" method="post" action="" enctype="multipart/form-data">
+    
+        {% csrf_token %}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+    
+        {% for field in form %}
+            {{ field }} <br />
+        {% endfor %}
+    
+        {{ formset.management_form }}
+        {% for item in formset %}
+            {{ item }} <img src="{{ photo }}" alt="item.photo" style="max-height:60px"><br />
+        {% endfor %}
+    
+    
+        <input type="submit" name="submit" value="Submit" />
     </form>
+
 {% endblock %}

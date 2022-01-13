@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% load markdownify %}
+
+{% block content %}
+
+<h1>{{ cat_name | capfirst }} posts</h1>
+
+{% for post in cat_posts %}
+
+<article class="post">
+    <time class="date">
+        Published: {{ post.published_date }}
+    </time>
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.text | slice:":300" | markdownify | striptags }}...</p>
+</article>
+
+{% endfor %}
+
+{% endblock %}
