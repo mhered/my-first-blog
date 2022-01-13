@@ -158,6 +158,7 @@ MARKDOWNIFY = {
             'href',
             'src',
             'alt',
+            'width',
         ],
         "WHITELIST_STYLES": [
             'color',
